@@ -20,25 +20,25 @@ const menuController = require("./controller/menucontroller");
 const isAuthenticated = require("./middleware/authmiddleware");
 
 // Create a new menu
-app.use("/menu", menuController.createMenu);
+app.post("/menu", menuController.createMenu);
 
 // Get a menu by ID
-app.use("/menu/:id", menuController.getMenuById);
+app.get("/menu/:id", menuController.getMenuById);
 
 // Get all menus
-app.use("/menu", menuController.getAllMenus);
+app.get("/menu", menuController.getAllMenus);
 
 // Update a menu by ID
-app.use("/menu/:id", menuController.updateMenu);
+app.put("/menu/:id", menuController.updateMenu);
 
 // Delete a menu by ID
-app.use("/menu/:id", menuController.deleteMenu);
+app.delete("/menu/:id", menuController.deleteMenu);
 
 // Register a new user
-app.use("/register", userController.registerUser);
+app.post("/register", userController.registerUser);
 
 // Login
-app.use("/login", userController.login);
+app.post("/login", userController.login);
 
 mongoose
   .connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
