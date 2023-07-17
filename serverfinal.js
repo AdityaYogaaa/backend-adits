@@ -14,7 +14,7 @@ app.use(
 );
 
 // Replace <password> with your actual password
-const uri = "mongodb+srv://AdityaYoga:aditadit@cluster0.2sjjgbe.mongodb.net/?retryWrites=true&w=majority"
+const uri = "mongodb+srv://AdityaYoga:aditadit@cluster0.2sjjgbe.mongodb.net/?retryWrites=true&w=majority";
 const userController = require("./controller/usercontroller");
 const menuController = require("./controller/menucontroller");
 const isAuthenticated = require("./middleware/authmiddleware");
@@ -26,7 +26,7 @@ app.use("/menu", menuController.createMenu);
 app.use("/menu/:id", menuController.getMenuById);
 
 // Get all menus
-app.use("/menu", isAuthenticated, menuController.getAllMenus);
+app.use("/menu", menuController.getAllMenus);
 
 // Update a menu by ID
 app.use("/menu/:id", menuController.updateMenu);
@@ -39,7 +39,6 @@ app.use("/register", userController.registerUser);
 
 // Login
 app.use("/login", userController.login);
-
 
 mongoose
   .connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
